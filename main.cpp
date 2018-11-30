@@ -1,9 +1,9 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 int binoct(int n){
-
+    n = n % 1000;
     return n;
 }
 
@@ -11,9 +11,9 @@ int main()
 {
     string type;
     int n;
-    cout << "Introdu ce fel de conversie vrei sa faci(binoct, bindec, binhex, octbin, octdec, octhex, decbin, decoct, dechex, hexbin, hexoct, hexdec)" << endl;
+    cout << "Insert what type of conversion you want to make(binoct, bindec, binhex, octbin, octdec, octhex, decbin, decoct, dechex, hexbin, hexoct, hexdec): ";
     cin >> type;
-    cout << "Introdu numarul ce vrei sa fie convertit" << endl;
+    cout << "Insert the number you want to convert: ";
     cin >> n;
     if(type == "binoct"){
         cout << binoct(n);
@@ -40,5 +40,6 @@ int main()
     }else if(type == "hexdec"){
         cout << "Ai ales hexdec";
     }
+    return 0;
 
 }
