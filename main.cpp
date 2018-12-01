@@ -35,7 +35,14 @@ int binoct(int n){
 int bindec(int n){
     int nDec = 0;
     int i = 0;
-    return n;
+    while(n){
+        if(n%10 == 1){
+            nDec += pow(2, i);
+        }
+        n /= 10;
+        ++i;
+    }
+    return nDec;
 }
 
 int main()
