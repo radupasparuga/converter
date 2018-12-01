@@ -44,6 +44,57 @@ int bindec(int n){
     }
     return nDec;
 }
+/* *****************************************   IN PROGRESS  *********************************************************
+void binhex(int n){
+    while(n){
+        cout << bindec(n%10000);
+        n /= 10000;
+    }
+}
+*******************************************************************************************************************/
+long long octbin(int n){
+    long long nBin = 1;
+    while(n){
+        switch(n%10){
+            case 0: nBin += 000;
+                    break;
+            case 1: nBin += 001;
+                    break;
+            case 2: nBin += 010;
+                    break;
+            case 3: nBin += 011;
+                    break;
+            case 4: nBin += 100;
+                    break;
+            case 5: nBin += 101;
+                    break;
+            case 6: nBin += 110;
+                    break;
+            case 7: nBin += 111;
+                    break;
+        }
+        nBin *= 1000;
+        n /= 10;
+    }
+    return reverseNum(nBin);
+}
+
+long long decbin(int n){
+    long long nBin = 0;
+    while(n){
+        nBin += n%2;
+        nBin*=10;
+        n/=2;
+    }
+    nBin /= 10;
+    return nBin;
+}
+
+int decoct(int n){
+    int nBin = decbin(n);
+    n = binoct(nBin);
+    return n;
+}
 
 int main()
 {
@@ -60,15 +111,15 @@ int main()
     }else if(type == "binhex"){
         cout << "Ai ales binhex";
     }else if(type == "octbin"){
-        cout << "Ai ales octbin";
+        cout << octbin(n);
     }else if(type == "octdec"){
         cout << "Ai ales octdec";
     }else if(type == "octhex"){
         cout << "Ai ales octhex";
     }else if(type == "decbin"){
-        cout << "Ai ales decbin";
+        cout << decbin(n);
     } else if(type == "decoct"){
-        cout << "Ai ales decoct";
+        cout << decoct(n);
     }else if(type == "dechex"){
         cout << "Ai ales dechex";
     }else if(type == "hexbin"){
