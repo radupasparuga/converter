@@ -1,9 +1,40 @@
 #include <iostream>
 #include <string>
+#include<cmath>
 using namespace std;
 
+int reverseNum(int n){
+    int rev = n;
+    n = 0;
+    while(rev){
+        n += rev % 10;
+        n *= 10;
+        rev /= 10;
+    }
+    n /= 10;
+    return n;
+}
+
 int binoct(int n){
-    n = n % 1000;
+    int nOct = 0;
+    int i = 0;
+    while(n) {
+        if (i == 3) {
+            i = 0;
+            nOct *= 10;
+        }
+        if (n % 10 == 1 || n == 1) {
+            nOct += pow(2, i);
+        }
+        i++;
+        n /= 10;
+    }
+    return reverseNum(nOct);
+}
+
+int bindec(int n){
+    int nDec = 0;
+    int i = 0;
     return n;
 }
 
@@ -18,7 +49,7 @@ int main()
     if(type == "binoct"){
         cout << binoct(n);
     } else if(type == "bindec"){
-        cout << "Ai ales bindec";
+        cout << bindec(n);
     }else if(type == "binhex"){
         cout << "Ai ales binhex";
     }else if(type == "octbin"){
